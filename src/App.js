@@ -2,18 +2,16 @@ import "./styles.css";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
-
 import { Icon, divIcon, point } from "leaflet";
-import Placeholder from "./placeholder.png"
+import Placholder from "./placeholder.png"; 
 
-// create custom icon
+// ✅ 1. Use image from public folder
 const customIcon = new Icon({
-  // iconUrl: "https://cdn-icons-png.flaticon.com/512/447/447031.png",
-  iconUrl: Placeholder,
-  iconSize: [38, 38] // size of the icon
+  iconUrl: Placholder, // Make sure this image exists in the public folder
+  iconSize: [38, 38]
 });
 
-// custom cluster icon
+// ✅ 2. Custom cluster icon
 const createClusterCustomIcon = function (cluster) {
   return new divIcon({
     html: `<span class="cluster-icon">${cluster.getChildCount()}</span>`,
@@ -22,7 +20,7 @@ const createClusterCustomIcon = function (cluster) {
   });
 };
 
-// markers
+// ✅ 3. Your marker array (same as provided)
 const markers = [
   {
     geocode: [12.245914085514979, 79.59611009470636],
@@ -124,7 +122,46 @@ const markers = [
   },{
     geocode: [14.394696, 75.965068],
     popUp: "Kurki ICICI Bank"
+  },{
+    geocode: [11.10425, 79.714584],
+    popUp: "Arupathy ICICI Bank"
+  },{
+    geocode:[10.859925, 79.08984],
+    popUp: "keelathirupanthuruthi ICICI Bank"
+  },{
+    geocode: [18.530411, 74.014772],
+    popUp: "Kolwadi ICICI Bank"
+  },{
+    geocode: [18.540989, 74.036405],
+    popUp: "Sashte ICICI Bank"
+  },{
+    geocode:[21.107653, 73.067836],
+    popUp: "Pisad ICICI Bank"
+  },{
+    geocode:[21.264865, 73.096398],
+    popUp: "Timba ICICI Bank"
+  },{
+    geocode:[21.122221, 73.031595],
+    popUp: "Tundi ICICI Bank"
+  },{
+    geocode:[21.061978, 73.132792],
+    popUp: "Tarsadi ICICI Bank"
+  },{
+    geocode: [22.548139, 73.220255],
+    popUp: "Gothada ICICI Bank"
+  },{
+    geocode:[22.596109, 73.360173],
+    popUp: "Dhantej ICICI Bank"
+  },{
+    geocode:[19.517194, 73.022524],
+    popUp: "KarelaPada "
+  },{
+    geocode:[19.523652, 73.012513],
+    popUp: "GhayGotha "
   },
+
+
+
 
 ];
 
@@ -135,8 +172,8 @@ export default function App() {
     <div style={{ height: "100%", width: "100%" }}>
       <MapContainer
         style={{ height: "100%", width: "100%" }}
-        center={[22, 78]} // Adjust the center coordinates
-        zoom={5} // Adjust the zoom level as needed
+        center={[22, 78]}
+        zoom={5}
         maxBounds={indiaBounds}
       >
         <TileLayer
@@ -147,9 +184,12 @@ export default function App() {
           chunkedLoading
           iconCreateFunction={createClusterCustomIcon}
         >
-          {/* Mapping through the markers */}
           {markers.map((marker, index) => (
-            <Marker key={index} position={marker.geocode}>
+            <Marker
+              key={index}
+              position={marker.geocode}
+              icon={customIcon} // ✅ Add this line
+            >
               <Popup>{marker.popUp}</Popup>
             </Marker>
           ))}
