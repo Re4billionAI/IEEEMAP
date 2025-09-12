@@ -160,6 +160,18 @@ const markers = [
     popUp: "GhayGotha "
   },
 
+  {
+    geocode:[14.383624, 80.119079],
+    popUp: "Salipeta "
+  },{
+    geocode:[13.243932, 79.33514],
+    popUp: "Pullur "
+  },{
+    geocode: [14.626912, 80.096949],
+    popUp: "Gajula-Dinne"
+  },
+
+
 
 
 
