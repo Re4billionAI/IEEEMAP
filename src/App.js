@@ -27,7 +27,34 @@ const markers = [{
   },{
     geocode:[19.523652, 73.012513],
     name: "GhayGotha "
-  },]
+  },
+  
+  
+  {
+    geocode:[19.516018, 72.978137],
+    name: "Enam-Pada-1 "
+  },{
+    geocode:[19.504882, 73.035916],
+    name: "Kochechapada "
+  },
+{
+    geocode:[19.511688, 73.023284],
+    name: "Vadpada"
+  },
+{
+    geocode:[19.513317, 72.969099],
+    name: "Plotpada-1 "
+  },
+{
+    geocode:[19.50953, 72.96972],
+    name: "Plotpada-2 "
+  },
+
+
+
+
+
+]
 
 const indiaBounds = [[8, 68], [37, 98]];
 
